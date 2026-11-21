@@ -1,1 +1,293 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080f20">
+<title>MOWAFY Web Design | تصميم مواقع احترافية</title>
+<meta name="description" content="MOWAFY Web Design - تصميم وتطوير مواقع إلكترونية احترافية وعصرية.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+:root{--bg:#080f20;--card:#111d33;--gold:#d9b568;--white:#fff;--muted:#aab4c5}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--white);line-height:1.8}
+a{text-decoration:none;color:inherit}
+.container{width:90%;max-width:1150px;margin:auto}
+header{background:rgba(8,15,32,.97);border-bottom:1px solid #ffffff14;position:sticky;top:0;z-index:1000}
+.navbar{min-height:75px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:26px;font-weight:bold;color:var(--gold);letter-spacing:1px}
+nav{display:flex;gap:24px;align-items:center}
+nav a{color:#e2e7ef;font-size:14px;transition:.3s}
+nav a:hover{color:var(--gold)}
+.menu-btn{display:none;background:none;color:white;border:0;font-size:28px;cursor:pointer}
+.hero{min-height:620px;display:flex;align-items:center;text-align:center;background:radial-gradient(circle at 50% 20%,#20375b 0,transparent 45%),linear-gradient(135deg,#080f20,#101d35);padding:90px 0}
+.hero-content{max-width:800px;margin:auto}
+.hero-tag{color:var(--gold);border:1px solid #d9b56866;padding:7px 20px;border-radius:30px;display:inline-block;margin-bottom:25px;font-size:13px}
+h1{font-size:clamp(35px,6vw,65px);line-height:1.35;margin-bottom:20px}
+h1 span,.gold{color:var(--gold)}
+.hero p{color:var(--muted);font-size:17px;max-width:650px;margin:0 auto 30px}
+.btn{display:inline-block;background:var(--gold);color:#111827;padding:13px 28px;border-radius:8px;font-weight:bold;transition:.3s;border:none;cursor:pointer;font-size:15px}
+.btn:hover{transform:translateY(-4px);background:#f0cf8a}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold);margin-right:10px}
+section{padding:85px 0}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title h2{font-size:34px;margin-bottom:10px}
+.section-title p{color:var(--muted)}
+.about{text-align:center;max-width:800px;margin:auto;color:var(--muted);font-size:17px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--card);border:1px solid #ffffff12;border-radius:15px;padding:30px 23px;transition:.3s}
+.card:hover{transform:translateY(-7px);border-color:var(--gold)}
+.card-icon{font-size:35px;margin-bottom:15px}
+.card h3{color:var(--gold);margin-bottom:12px;font-size:20px}
+.card p{color:var(--muted);font-size:14px}
+.portfolio-card{min-height:190px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:linear-gradient(145deg,#182a49,#101a2e)}
+.portfolio-card small{color:var(--gold);margin-top:10px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+.step{padding:25px 12px;background:var(--card);border-radius:12px}
+.step-number{width:42px;height:42px;border-radius:50%;background:var(--gold);color:#101827;display:grid;place-items:center;margin:0 auto 15px;font-weight:bold}
+.step p{color:var(--muted);font-size:13px;margin-top:8px}
+.contact-box{max-width:700px;margin:auto;background:var(--card);padding:35px;border-radius:15px;border:1px solid #d9b56833}
+input,select,textarea{width:100%;padding:14px;margin-bottom:15px;border-radius:8px;border:1px solid #33435e;background:#0b1528;color:white;font-size:15px;font-family:inherit;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+textarea{min-height:120px;resize:vertical}
+.contact-box .btn{width:100%}
+.contact-note{color:var(--muted);text-align:center;font-size:13px;margin-top:15px}
+footer{border-top:1px solid #ffffff14;text-align:center;padding:30px 10px;color:var(--muted);font-size:14px}
+footer strong{color:var(--gold)}
+.whatsapp-float{position:fixed;bottom:20px;left:20px;z-index:999;background:#20c765;color:white;width:55px;height:55px;border-radius:50%;display:grid;place-items:center;font-size:25px;box-shadow:0 5px 20px #0005}
+@media(max-width:800px){
+.menu-btn{display:block}
+nav{display:none;position:absolute;top:75px;right:0;width:100%;background:#101b30;flex-direction:column;padding:20px;gap:15px}
+nav.active{display:flex}
+.cards{grid-template-columns:1fr}
+.steps{grid-template-columns:repeat(2,1fr)}
+.hero{min-height:550px}
+.btn-outline{margin:12px 0 0}
+.contact-box{padding:22px}
+}
+@media(max-width:400px){.steps{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container navbar">
+<a href="#home" class="logo">MOWAFY.</a>
+<button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+<nav id="nav">
+<a href="#home">الرئيسية</a>
+<a href="#about">من نحن</a>
+<a href="#services">خدماتنا</a>
+<a href="#portfolio">أعمالنا</a>
+<a href="#contact">تواصل معنا</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+<div class="container hero-content">
+<span class="hero-tag">MOWAFY WEB DESIGN</span>
+<h1>نصنع لك حضوراً رقمياً <span>يليق بطموحك</span></h1>
+<p>نصمم مواقع إلكترونية عصرية واحترافية تساعدك على عرض خدماتك والوصول إلى عملائك بشكل مميز.</p>
+<a href="#contact" class="btn">اطلب موقعك الآن</a>
+<a href="#services" class="btn btn-outline">اكتشف خدماتنا</a>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<div class="section-title">
+<h2>من <span class="gold">نحن؟</span></h2>
+<p>أفكارك تستحق أن تظهر بشكل احترافي</p>
+</div>
+<div class="about">
+<p>MOWAFY Web Design علامة متخصصة في تصميم وتطوير المواقع الإلكترونية. نركز على تقديم تصميمات عصرية وتجربة استخدام سهلة ومواقع متوافقة مع الهواتف وأجهزة الكمبيوتر.</p>
+</div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+<div class="section-title">
+<h2>خدمات <span class="gold">نقدمها</span></h2>
+<p>حلول رقمية تناسب احتياجات مشروعك</p>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>تصميم المواقع</h3>
+<p>تصميم مواقع عصرية وجذابة تعبر عن هوية مشروعك.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>مواقع متجاوبة</h3>
+<p>مواقع تعمل بشكل ممتاز على الموبايل والكمبيوتر.</p>
+</div>
+<div class="card">
+<div class="card-icon">🚀</div>
+<h3>تطوير المواقع</h3>
+<p>تحسين تجربة المستخدم وتطوير واجهات المواقع.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>مواقع الشركات</h3>
+<p>موقع تعريفي احترافي لعرض شركتك وخدماتك.</p>
+</div>
+<div class="card">
+<div class="card-icon">🛍️</div>
+<h3>صفحات المنتجات</h3>
+<p>صفحات مميزة لعرض المنتجات والخدمات.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎨</div>
+<h3>تصميم مخصص</h3>
+<p>تصميم يناسب فكرتك واحتياجات مشروعك.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="portfolio">
+<div class="container">
+<div class="section-title">
+<h2>نماذج من <span class="gold">أعمالنا</span></h2>
+<p>أمثلة تجريبية على أنواع المواقع التي يمكن تنفيذها</p>
+</div>
+<div class="cards">
+<div class="card portfolio-card">
+<div class="card-icon">🏢</div>
+<h3>موقع شركة</h3>
+<p>تصميم تعريفي للشركات والمؤسسات.</p>
+<small>نموذج تجريبي</small>
+</div>
+<div class="card portfolio-card">
+<div class="card-icon">🛒</div>
+<h3>متجر إلكتروني</h3>
+<p>واجهة لعرض المنتجات بطريقة منظمة.</p>
+<small>نموذج تجريبي</small>
+</div>
+<div class="card portfolio-card">
+<div class="card-icon">🍔</div>
+<h3>موقع مطعم</h3>
+<p>تصميم قائمة طعام وبيانات التواصل.</p>
+<small>نموذج تجريبي</small>
+</div>
+</div>
+</div>
+</section>
+
+<section id="process">
+<div class="container">
+<div class="section-title">
+<h2>كيف <span class="gold">نعمل؟</span></h2>
+<p>خطوات بسيطة لتحويل فكرتك إلى موقع</p>
+</div>
+<div class="steps">
+<div class="step">
+<div class="step-number">1</div>
+<h3>تواصل معنا</h3>
+<p>احكي لنا عن فكرتك واحتياجاتك.</p>
+</div>
+<div class="step">
+<div class="step-number">2</div>
+<h3>تحديد التفاصيل</h3>
+<p>نتفق على شكل الموقع والخدمات المطلوبة.</p>
+</div>
+<div class="step">
+<div class="step-number">3</div>
+<h3>التصميم</h3>
+<p>نبدأ في تنفيذ التصميم المتفق عليه.</p>
+</div>
+<div class="step">
+<div class="step-number">4</div>
+<h3>التسليم</h3>
+<p>نراجع الموقع ونسلمك النسخة النهائية.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="section-title">
+<h2>ابدأ مشروعك <span class="gold">الآن</span></h2>
+<p>املأ البيانات وسنتواصل معك عبر واتساب</p>
+</div>
+
+<div class="contact-box">
+<form id="contactForm">
+<input type="text" id="clientName" placeholder="اسمك بالكامل" required>
+<input type="tel" id="clientPhone" placeholder="رقم هاتفك" required>
+<select id="clientService" required>
+<option value="">اختر الخدمة المطلوبة</option>
+<option>تصميم موقع شركة</option>
+<option>تصميم متجر إلكتروني</option>
+<option>تصميم موقع شخصي</option>
+<option>تصميم موقع مطعم</option>
+<option>خدمة أخرى</option>
+</select>
+<textarea id="clientMessage" placeholder="اكتب تفاصيل مشروعك..." required></textarea>
+<button type="submit" class="btn">إرسال الطلب عبر واتساب</button>
+</form>
+<p class="contact-note">سيتم فتح واتساب لإرسال طلبك مباشرة.</p>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>جميع الحقوق محفوظة © 2026 <strong>MOWAFY Web Design</strong></p>
+<p>Designed with passion ✨</p>
+</footer>
+
+<a class="whatsapp-float" id="whatsappLink" href="https://wa.me/201121524013" target="_blank" aria-label="تواصل عبر واتساب">✆</a>
+
+<script>
+const WHATSAPP_NUMBER = "201121524013";
+
+document.getElementById("menuBtn").addEventListener("click",function(){
+document.getElementById("nav").classList.toggle("active");
+});
+
+document.querySelectorAll("#nav a").forEach(function(link){
+link.addEventListener("click",function(){
+document.getElementById("nav").classList.remove("active");
+});
+});
+
+function openWhatsApp(message){
+const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+window.open(url,"_blank");
+}
+
+document.getElementById("whatsappLink").addEventListener("click",function(e){
+e.preventDefault();
+openWhatsApp("مرحباً MOWAFY Web Design، أريد الاستفسار عن خدمات تصميم المواقع.");
+});
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+e.preventDefault();
+
+const name = document.getElementById("clientName").value.trim();
+const phone = document.getElementById("clientPhone").value.trim();
+const service = document.getElementById("clientService").value;
+const message = document.getElementById("clientMessage").value.trim();
+
+const text =
+"طلب جديد من MOWAFY Web Design\n\n" +
+"الاسم: " + name + "\n" +
+"الهاتف: " + phone + "\n" +
+"الخدمة المطلوبة: " + service + "\n" +
+"التفاصيل: " + message;
+
+openWhatsApp(text);
+});
+</script>
+
+</body>
+</html>
